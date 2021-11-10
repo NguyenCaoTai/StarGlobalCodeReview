@@ -1,0 +1,35 @@
+{
+  "results": [
+    {
+      "user": {
+        "gender": "male",
+        "name": {
+          "title": "mr",
+          "first": "enrique",
+          "last": "romero"
+        },
+        "location": {
+          "street": "3451 china ave",
+          "city": "lancaster",
+          "state": "california",
+          "zip": "19040"
+        },
+        "email": "enrique.romero82@example.com",
+        "username": "bigelephant132",
+        "password": "hottest",
+        "salt": "16VwMQ97",
+        "md5": "e2ac4a325d8a91fd8c9c325d83368c6d",
+        "sha1": "f3d8d0dcf6b534198d68e006f5bc9badb479648c",
+        "sha256": "8ce681b80ed950a0cb121201aa64f5d25a43ad3c74890be3456325eb5f228d91",
+        "registered": "1371063853",
+        "dob": "200337769",
+        "phone": "(818)-127-3982",
+        "cell": "(586)-419-7464",
+        "SSN": "322-31-7447",
+        "picture": "http://api.randomuser.me/portraits/men/5.jpg"
+      },
+      "seed": "7066ca26932a8bba",
+      "version": "0.4"
+    }
+  ]
+}

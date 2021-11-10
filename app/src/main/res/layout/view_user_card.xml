@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.example.myapplication.ui.main.UserInfoType" />
+
+        <variable
+            name="userInfo"
+            type="com.example.myapplication.ui.main.MainViewModel" />
+
+        <variable
+            name="handler"
+            type="com.example.myapplication.ui.main.UserInfoHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_user_card"
+        tools:context=".ui.main.MainFragment">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/imgUserAvatar"
+            app:layout_constraintGuide_begin="@dimen/user_card_margin_top"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread_inside" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgUserAvatar"
+            android:layout_width="@dimen/avatar_size"
+            android:layout_height="@dimen/avatar_size"
+            android:background="@drawable/bg_avatar"
+            android:padding="@dimen/avatar_padding"
+            android:src="@drawable/ic_launcher_foreground"
+            app:error="@{@drawable/ic_launcher_foreground}"
+            app:imageUrl="@{userInfo.avatar}"
+            app:layout_constraintBottom_toTopOf="@+id/txtUserInfo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/guidelineTop"
+            app:layout_constraintVertical_chainStyle="spread_inside" />
+
+        <TextView
+            android:id="@+id/txtUserInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@{userInfo.displayInfo}"
+            app:layout_constraintBottom_toTopOf="@+id/layoutUserAction"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgUserAvatar"
+            app:layout_constraintVertical_chainStyle="spread_inside"
+            tools:text="My Name is \n Nguyen Cao Tai" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/layoutUserAction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/guidelineBottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtUserInfo"
+            app:layout_constraintVertical_chainStyle="spread_inside">
+
+            <androidx.appcompat.widget.AppCompatButton
+                style="@style/UserCard.ButtonAction"
+                android:background="@drawable/ic_name_selector"
+                android:onClick="@{view -> handler.execute(UserInfoType.NAME)}" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                style="@style/UserCard.ButtonAction"
+                android:background="@drawable/ic_calendar_selector"
+                android:onClick="@{view -> handler.execute(UserInfoType.DOB)}" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                style="@style/UserCard.ButtonAction"
+                android:background="@drawable/ic_address_selector"
+                android:onClick="@{view -> handler.execute(UserInfoType.ADDRESS)}" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                style="@style/UserCard.ButtonAction"
+                android:background="@drawable/ic_phone_selector"
+                android:onClick="@{view -> handler.execute(UserInfoType.PHONE)}" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                style="@style/UserCard.ButtonAction"
+                android:background="@drawable/ic_lock_selector"
+                android:onClick="@{view -> handler.execute(UserInfoType.LOCK)}" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintGuide_end="@dimen/user_card_margin_bottom" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
